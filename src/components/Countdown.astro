@@ -203,72 +203,107 @@ import { siteConfig } from '../config';
   </div>
 
   <!-- Social Media Bunker (Donde todavía no la banean) -->
-  <div class="w-full max-w-3xl mx-auto mt-12 pt-8 border-t border-white/10 flex flex-col items-center">
+  <div class="w-full max-w-4xl mx-auto mt-14 pt-8 border-t border-white/10 flex flex-col items-center">
     
     <!-- Funny pill header -->
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-white/70 mb-2">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono mb-3 shadow-inner">
       <span class="relative flex h-2 w-2">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#53FC18] opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2 w-2 bg-[#53FC18]"></span>
       </span>
-      <span class="text-white font-bold">REDES ACTIVAS</span>
-      <span class="text-white/30">•</span>
-      <span class="text-[#53FC18]/90 font-medium">Donde todavía no está baneada (de milagro 🫣)</span>
+      <span class="text-white font-bold uppercase tracking-wider">Redes de Emergencia</span>
+      <span class="text-white/20">•</span>
+      <span class="text-[#53FC18] font-medium">Donde todavía no está baneada (de milagro 🫣)</span>
     </div>
 
-    <p class="text-xs sm:text-sm text-white/50 max-w-md mx-auto mb-6">
-      Síguela en sus cuentas oficiales para no perderte stories, clips y avisos de última hora:
+    <h3 class="text-xl sm:text-2xl font-black text-white mb-2 tracking-tight">
+      Síguela mientras reabre Kick
+    </h3>
+    <p class="text-xs sm:text-sm text-white/50 max-w-md mx-auto mb-7 text-center">
+      Cuentas oficiales para no perderte stories, bailes y avisos antes del gran directo:
     </p>
 
-    <!-- Social links grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 w-full">
+    <!-- Social links grid (Vertical Bento Cards) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
       
-      <!-- TikTok 1 -->
+      <!-- TikTok 1: Principal -->
       <a 
         href="https://www.tiktok.com/@nicolebereniceu"
         target="_blank"
         rel="noopener noreferrer"
-        class="group glass-panel rounded-2xl p-3.5 flex items-center justify-between border border-white/10 hover:border-[#25F4EE]/60 hover:shadow-[0_0_20px_rgba(37,244,238,0.25)] transition-all duration-300 hover:-translate-y-0.5"
+        class="group relative glass-panel rounded-2xl p-4 sm:p-5 flex flex-col justify-between border border-white/10 hover:border-[#25F4EE]/60 hover:shadow-[0_0_30px_rgba(37,244,238,0.2)] transition-all duration-300 hover:-translate-y-1 overflow-hidden"
       >
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-black/50 border border-white/10 flex items-center justify-center text-[#25F4EE] group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(37,244,238,0.3)]">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <!-- Background Ambient Glow -->
+        <div class="absolute -top-10 -right-10 w-24 h-24 bg-[#25F4EE]/15 rounded-full blur-2xl group-hover:bg-[#25F4EE]/30 transition-all pointer-events-none"></div>
+
+        <!-- Top Row: Icon + Badge -->
+        <div class="flex items-center justify-between mb-4 relative z-10">
+          <div class="w-12 h-12 rounded-xl bg-black/60 border border-white/10 flex items-center justify-center text-[#25F4EE] shadow-[0_0_15px_rgba(37,244,238,0.25)] group-hover:scale-110 group-hover:border-[#25F4EE]/50 transition-all">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
               <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.3 6.3 0 0 0 1.88-4.49V8.78a8.28 8.28 0 0 0 4.89 1.57V6.9a4.84 4.84 0 0 1-1-.21z"/>
             </svg>
           </div>
-          <div class="text-left">
-            <div class="flex items-center gap-1.5">
-              <span class="text-xs font-bold text-white group-hover:text-[#25F4EE] transition-colors">TikTok</span>
-              <span class="text-[9px] px-1.5 py-0.5 rounded bg-[#25F4EE]/10 text-[#25F4EE] font-mono font-bold">Principal</span>
-            </div>
-            <span class="text-[11px] text-white/50 font-mono">@nicolebereniceu</span>
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#25F4EE]/10 text-[#25F4EE] border border-[#25F4EE]/30 text-[10px] font-mono font-bold uppercase tracking-wider whitespace-nowrap shadow-sm">
+            <span>🎵</span>
+            <span>Principal</span>
+          </span>
+        </div>
+
+        <!-- Middle: Title & Handle -->
+        <div class="text-left mb-4 relative z-10">
+          <div class="text-base font-extrabold text-white group-hover:text-[#25F4EE] transition-colors flex items-center gap-1.5">
+            <span>TikTok</span>
+          </div>
+          <div class="text-xs text-white/50 font-mono tracking-tight mt-0.5 truncate">
+            @nicolebereniceu
           </div>
         </div>
-        <span class="text-white/40 group-hover:text-[#25F4EE] group-hover:translate-x-0.5 transition-all text-xs">↗</span>
+
+        <!-- Bottom: Action link -->
+        <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-white/40 group-hover:text-[#25F4EE] transition-colors relative z-10">
+          <span class="font-medium">Ver videos</span>
+          <span class="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform font-bold">↗</span>
+        </div>
       </a>
 
-      <!-- TikTok 2 -->
+      <!-- TikTok 2: Spicy -->
       <a 
         href="https://www.tiktok.com/@spicyberenice"
         target="_blank"
         rel="noopener noreferrer"
-        class="group glass-panel rounded-2xl p-3.5 flex items-center justify-between border border-white/10 hover:border-[#FE2C55]/60 hover:shadow-[0_0_20px_rgba(254,44,85,0.25)] transition-all duration-300 hover:-translate-y-0.5"
+        class="group relative glass-panel rounded-2xl p-4 sm:p-5 flex flex-col justify-between border border-white/10 hover:border-[#FE2C55]/60 hover:shadow-[0_0_30px_rgba(254,44,85,0.2)] transition-all duration-300 hover:-translate-y-1 overflow-hidden"
       >
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-black/50 border border-white/10 flex items-center justify-center text-[#FE2C55] group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(254,44,85,0.3)]">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <!-- Background Ambient Glow -->
+        <div class="absolute -top-10 -right-10 w-24 h-24 bg-[#FE2C55]/15 rounded-full blur-2xl group-hover:bg-[#FE2C55]/30 transition-all pointer-events-none"></div>
+
+        <!-- Top Row: Icon + Badge -->
+        <div class="flex items-center justify-between mb-4 relative z-10">
+          <div class="w-12 h-12 rounded-xl bg-black/60 border border-white/10 flex items-center justify-center text-[#FE2C55] shadow-[0_0_15px_rgba(254,44,85,0.25)] group-hover:scale-110 group-hover:border-[#FE2C55]/50 transition-all">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
               <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.3 6.3 0 0 0 1.88-4.49V8.78a8.28 8.28 0 0 0 4.89 1.57V6.9a4.84 4.84 0 0 1-1-.21z"/>
             </svg>
           </div>
-          <div class="text-left">
-            <div class="flex items-center gap-1.5">
-              <span class="text-xs font-bold text-white group-hover:text-[#FE2C55] transition-colors">TikTok</span>
-              <span class="text-[9px] px-1.5 py-0.5 rounded bg-[#FE2C55]/10 text-[#FE2C55] font-mono font-bold">Spicy 🔥</span>
-            </div>
-            <span class="text-[11px] text-white/50 font-mono">@spicyberenice</span>
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FE2C55]/10 text-[#FE2C55] border border-[#FE2C55]/30 text-[10px] font-mono font-bold uppercase tracking-wider whitespace-nowrap shadow-sm">
+            <span>🔥</span>
+            <span>Spicy</span>
+          </span>
+        </div>
+
+        <!-- Middle: Title & Handle -->
+        <div class="text-left mb-4 relative z-10">
+          <div class="text-base font-extrabold text-white group-hover:text-[#FE2C55] transition-colors flex items-center gap-1.5">
+            <span>TikTok</span>
+          </div>
+          <div class="text-xs text-white/50 font-mono tracking-tight mt-0.5 truncate">
+            @spicyberenice
           </div>
         </div>
-        <span class="text-white/40 group-hover:text-[#FE2C55] group-hover:translate-x-0.5 transition-all text-xs">↗</span>
+
+        <!-- Bottom: Action link -->
+        <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-white/40 group-hover:text-[#FE2C55] transition-colors relative z-10">
+          <span class="font-medium">Cuenta secundaria</span>
+          <span class="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform font-bold">↗</span>
+        </div>
       </a>
 
       <!-- Instagram -->
@@ -276,23 +311,39 @@ import { siteConfig } from '../config';
         href="https://www.instagram.com/nicoleberenice_"
         target="_blank"
         rel="noopener noreferrer"
-        class="group glass-panel rounded-2xl p-3.5 flex items-center justify-between border border-white/10 hover:border-[#E1306C]/60 hover:shadow-[0_0_20px_rgba(225,48,108,0.25)] transition-all duration-300 hover:-translate-y-0.5"
+        class="group relative glass-panel rounded-2xl p-4 sm:p-5 flex flex-col justify-between border border-white/10 hover:border-[#E1306C]/60 hover:shadow-[0_0_30px_rgba(225,48,108,0.2)] transition-all duration-300 hover:-translate-y-1 overflow-hidden"
       >
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-black/50 border border-white/10 flex items-center justify-center text-[#E1306C] group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(225,48,108,0.3)]">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <!-- Background Ambient Glow -->
+        <div class="absolute -top-10 -right-10 w-24 h-24 bg-[#E1306C]/15 rounded-full blur-2xl group-hover:bg-[#E1306C]/30 transition-all pointer-events-none"></div>
+
+        <!-- Top Row: Icon + Badge -->
+        <div class="flex items-center justify-between mb-4 relative z-10">
+          <div class="w-12 h-12 rounded-xl bg-black/60 border border-white/10 flex items-center justify-center text-[#E1306C] shadow-[0_0_15px_rgba(225,48,108,0.25)] group-hover:scale-110 group-hover:border-[#E1306C]/50 transition-all">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
           </div>
-          <div class="text-left">
-            <div class="flex items-center gap-1.5">
-              <span class="text-xs font-bold text-white group-hover:text-[#E1306C] transition-colors">Instagram</span>
-              <span class="text-[9px] px-1.5 py-0.5 rounded bg-[#E1306C]/10 text-[#E1306C] font-mono font-bold">Stories 📸</span>
-            </div>
-            <span class="text-[11px] text-white/50 font-mono">@nicoleberenice_</span>
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#E1306C]/10 text-[#E1306C] border border-[#E1306C]/30 text-[10px] font-mono font-bold uppercase tracking-wider whitespace-nowrap shadow-sm">
+            <span>📸</span>
+            <span>Stories</span>
+          </span>
+        </div>
+
+        <!-- Middle: Title & Handle -->
+        <div class="text-left mb-4 relative z-10">
+          <div class="text-base font-extrabold text-white group-hover:text-[#E1306C] transition-colors flex items-center gap-1.5">
+            <span>Instagram</span>
+          </div>
+          <div class="text-xs text-white/50 font-mono tracking-tight mt-0.5 truncate">
+            @nicoleberenice_
           </div>
         </div>
-        <span class="text-white/40 group-hover:text-[#E1306C] group-hover:translate-x-0.5 transition-all text-xs">↗</span>
+
+        <!-- Bottom: Action link -->
+        <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-white/40 group-hover:text-[#E1306C] transition-colors relative z-10">
+          <span class="font-medium">Ver fotos</span>
+          <span class="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform font-bold">↗</span>
+        </div>
       </a>
 
       <!-- Twitch -->
@@ -300,23 +351,39 @@ import { siteConfig } from '../config';
         href="https://www.twitch.tv/berenicenicole"
         target="_blank"
         rel="noopener noreferrer"
-        class="group glass-panel rounded-2xl p-3.5 flex items-center justify-between border border-white/10 hover:border-[#9146FF]/60 hover:shadow-[0_0_20px_rgba(145,70,255,0.25)] transition-all duration-300 hover:-translate-y-0.5"
+        class="group relative glass-panel rounded-2xl p-4 sm:p-5 flex flex-col justify-between border border-white/10 hover:border-[#9146FF]/60 hover:shadow-[0_0_30px_rgba(145,70,255,0.2)] transition-all duration-300 hover:-translate-y-1 overflow-hidden"
       >
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-black/50 border border-white/10 flex items-center justify-center text-[#9146FF] group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(145,70,255,0.3)]">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+        <!-- Background Ambient Glow -->
+        <div class="absolute -top-10 -right-10 w-24 h-24 bg-[#9146FF]/15 rounded-full blur-2xl group-hover:bg-[#9146FF]/30 transition-all pointer-events-none"></div>
+
+        <!-- Top Row: Icon + Badge -->
+        <div class="flex items-center justify-between mb-4 relative z-10">
+          <div class="w-12 h-12 rounded-xl bg-black/60 border border-white/10 flex items-center justify-center text-[#9146FF] shadow-[0_0_15px_rgba(145,70,255,0.25)] group-hover:scale-110 group-hover:border-[#9146FF]/50 transition-all">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
               <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/>
             </svg>
           </div>
-          <div class="text-left">
-            <div class="flex items-center gap-1.5">
-              <span class="text-xs font-bold text-white group-hover:text-[#9146FF] transition-colors">Twitch</span>
-              <span class="text-[9px] px-1.5 py-0.5 rounded bg-[#9146FF]/10 text-[#9146FF] font-mono font-bold">Canal 🟣</span>
-            </div>
-            <span class="text-[11px] text-white/50 font-mono">berenicenicole</span>
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#9146FF]/10 text-[#9146FF] border border-[#9146FF]/30 text-[10px] font-mono font-bold uppercase tracking-wider whitespace-nowrap shadow-sm">
+            <span>🟣</span>
+            <span>Canal</span>
+          </span>
+        </div>
+
+        <!-- Middle: Title & Handle -->
+        <div class="text-left mb-4 relative z-10">
+          <div class="text-base font-extrabold text-white group-hover:text-[#9146FF] transition-colors flex items-center gap-1.5">
+            <span>Twitch</span>
+          </div>
+          <div class="text-xs text-white/50 font-mono tracking-tight mt-0.5 truncate">
+            berenicenicole
           </div>
         </div>
-        <span class="text-white/40 group-hover:text-[#9146FF] group-hover:translate-x-0.5 transition-all text-xs">↗</span>
+
+        <!-- Bottom: Action link -->
+        <div class="pt-3 border-t border-white/5 flex items-center justify-between text-xs text-white/40 group-hover:text-[#9146FF] transition-colors relative z-10">
+          <span class="font-medium">Directos pasados</span>
+          <span class="group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform font-bold">↗</span>
+        </div>
       </a>
 
     </div>
