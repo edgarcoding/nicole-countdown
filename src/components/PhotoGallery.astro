@@ -1,0 +1,132 @@
+---
+import { siteConfig } from '../config';
+---
+
+<section id="galeria" class="py-16 max-w-6xl mx-auto px-4 w-full">
+  
+  <div class="text-center mb-12">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#53FC18]/10 text-[#53FC18] text-xs font-mono font-bold uppercase tracking-wider mb-3">
+      <span>📸</span>
+      <span>NICOLE'S VAULT • ÁLBUM DEL REGRESO</span>
+    </div>
+    <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-3">
+      Galería & Spoilers Exclusivos
+    </h2>
+    <p class="text-white/60 text-sm sm:text-base max-w-xl mx-auto">
+      Espacio oficial para fotos del setup, outfits, recuerdos de la comunidad y momentos previos a la transmisión.
+    </p>
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {siteConfig.photos.map((item, index) => (
+      <div 
+        class="glass-panel neon-border rounded-2xl p-4 flex flex-col group relative overflow-hidden transition-all duration-300 hover:-translate-y-1.5"
+        data-slot-id={item.id}
+      >
+        <!-- Badge top -->
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-[10px] font-mono font-black px-2 py-0.5 rounded bg-[#53FC18]/15 text-[#53FC18] border border-[#53FC18]/30">
+            {item.badge}
+          </span>
+          <span class="text-xs text-white/40 font-mono">#{index + 1}</span>
+        </div>
+
+        <!-- Image or Placeholder Container -->
+        <div class="relative w-full aspect-square rounded-xl bg-gradient-to-b from-[#13171a] to-[#0a0d0e] border border-white/10 overflow-hidden flex flex-col items-center justify-center p-4 text-center group-hover:border-[#53FC18]/40 transition-colors">
+          
+          {item.url ? (
+            <img 
+              src={item.url} 
+              alt={item.title} 
+              class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500" 
+            />
+          ) : (
+            <div class="flex flex-col items-center justify-center h-full w-full relative">
+              <!-- Placeholder Graphic -->
+              <div class="w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:border-[#53FC18]/50 transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+                {index === 0 && <span class="text-2xl">🎙️</span>}
+                {index === 1 && <span class="text-2xl">👗</span>}
+                {index === 2 && <span class="text-2xl">⚡</span>}
+                {index === 3 && <span class="text-2xl">👑</span>}
+              </div>
+
+              <span class="text-xs font-bold text-white/80 mb-1">
+                Foto #{index + 1}
+              </span>
+              <span class="text-[11px] text-white/40 leading-snug max-w-[140px]">
+                Espacio listo para cuando pases la imagen
+              </span>
+
+              <!-- Live preview target image tag (hidden until file dropped or selected) -->
+              <img 
+                id={`preview-${item.id}`} 
+                class="hidden absolute inset-0 w-full h-full object-cover rounded-xl" 
+                alt="Vista previa" 
+              />
+            </div>
+          )}
+
+          <!-- Interactive quick test button (permite previsualizar fotos locales al instante) -->
+          <label class="absolute inset-0 cursor-pointer opacity-0 hover:opacity-100 bg-black/75 backdrop-blur-sm flex flex-col items-center justify-center text-center p-4 transition-opacity">
+            <span class="text-xl mb-1">📷</span>
+            <span class="text-xs font-bold text-white mb-0.5">Probar foto aquí</span>
+            <span class="text-[10px] text-[#53FC18]">Haz click para subir preview</span>
+            <input 
+              type="file" 
+              accept="image/*" 
+              class="hidden local-photo-input" 
+              data-preview-target={`preview-${item.id}`}
+            />
+          </label>
+        </div>
+
+        <!-- Title & description -->
+        <div class="mt-4 flex flex-col flex-grow">
+          <h3 class="text-base font-bold text-white group-hover:text-[#53FC18] transition-colors mb-1">
+            {item.title}
+          </h3>
+          <p class="text-xs text-white/50 leading-relaxed">
+            {item.subtitle}
+          </p>
+        </div>
+
+      </div>
+    ))}
+  </div>
+
+  <!-- Helpful tip bar -->
+  <div class="mt-8 p-4 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs text-white/50">
+    <div class="flex items-center gap-2">
+      <span class="text-[#53FC18]">💡</span>
+      <span><strong>Tip de personalización:</strong> Puedes hacer click en cualquier marco para previsualizar una foto al instante desde tu computadora, o simplemente pasármela por el chat y yo la configuraré.</span>
+    </div>
+    <span class="font-mono text-[#53FC18] whitespace-nowrap">src/config.ts</span>
+  </div>
+
+</section>
+
+<script>
+  // Handle local instant photo preview so user can test photos immediately
+  const photoInputs = document.querySelectorAll('.local-photo-input');
+
+  photoInputs.forEach(input => {
+    input.addEventListener('change', (e) => {
+      const target = e.target as HTMLInputElement;
+      const file = target.files?.[0];
+      const targetId = target.getAttribute('data-preview-target');
+
+      if (file && targetId) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const img = document.getElementById(targetId) as HTMLImageElement;
+          if (img && event.target?.result) {
+            img.src = event.target.result as string;
+            img.classList.remove('hidden');
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  });
+</script>

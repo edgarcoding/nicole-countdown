@@ -1,0 +1,151 @@
+---
+import { siteConfig } from '../config';
+---
+
+<section class="py-12 max-w-4xl mx-auto px-4 w-full">
+  <div class="glass-panel neon-border rounded-3xl p-6 sm:p-8 relative overflow-hidden">
+    
+    <!-- Header of the chat -->
+    <div class="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-[#53FC18] text-black font-black flex items-center justify-center text-xs">
+          K
+        </div>
+        <div>
+          <h3 class="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+            <span>Chat en Espera: Sala de Nicole</span>
+            <span class="w-2 h-2 rounded-full bg-[#53FC18] animate-ping"></span>
+          </h3>
+          <p class="text-[11px] text-white/50 font-mono">
+            487 espectadores en sala de espera
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 text-xs font-mono text-white/40">
+        <span class="hidden sm:inline">Modo lento: Desactivado</span>
+        <span class="px-2 py-0.5 rounded bg-white/[0.05] text-[#53FC18] border border-white/10 font-bold">VIVO</span>
+      </div>
+    </div>
+
+    <!-- Messages Container -->
+    <div 
+      id="chat-messages-container" 
+      class="h-64 sm:h-72 overflow-y-auto space-y-2.5 pr-2 mb-4 scrollbar-thin text-xs sm:text-sm font-sans"
+    >
+      <!-- Initial seed messages -->
+      <div class="flex items-start gap-2">
+        <span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-purple-500/20 text-purple-400 border border-purple-500/30">VIP</span>
+        <span class="font-bold text-[#53FC18]">juan_gamer99:</span>
+        <span class="text-white/80">¿Quién más está contando las horas para que prenda? 🙋‍♂️</span>
+      </div>
+
+      <div class="flex items-start gap-2">
+        <span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">SUB 6m</span>
+        <span class="font-bold text-cyan-300">valeria_v:</span>
+        <span class="text-white/80">5 días van a pasar volandoooo, Nicole te extrañamos 💚💚</span>
+      </div>
+
+      <div class="flex items-start gap-2">
+        <span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-red-500/20 text-red-400 border border-red-500/30">MOD</span>
+        <span class="font-bold text-red-400">carlos_mod:</span>
+        <span class="text-white/80">Recuerden dejar su hype en el botón de arriba gente!! 🔥</span>
+      </div>
+
+      <div class="flex items-start gap-2">
+        <span class="text-[10px] font-bold px-1.5 py-0.2 rounded bg-[#53FC18]/20 text-[#53FC18] border border-[#53FC18]/30">FAN</span>
+        <span class="font-bold text-amber-300">andres_kick:</span>
+        <span class="text-white/80">¿Se vendrá stream de 10 horas de regreso o qué opinan? 🍿</span>
+      </div>
+    </div>
+
+    <!-- User Input Simulation -->
+    <form id="chat-form" class="flex gap-2">
+      <input 
+        type="text" 
+        id="chat-input"
+        placeholder="Escribe un mensaje de apoyo para Nicole..." 
+        maxlength="150"
+        autocomplete="off"
+        class="flex-grow bg-black/60 border border-white/10 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#53FC18]/70 focus:ring-1 focus:ring-[#53FC18]/40 transition-all"
+      />
+      <button 
+        type="submit" 
+        class="px-5 py-2.5 rounded-xl bg-[#53FC18] text-black font-extrabold text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all shadow-[0_0_15px_rgba(83,252,24,0.3)] whitespace-nowrap cursor-pointer"
+      >
+        Enviar 💬
+      </button>
+    </form>
+
+    <div class="mt-2 text-right text-[11px] text-white/30 font-mono">
+      Simulador de chat comunitario • Presiona Enter para chatear
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { playHypePop } from '../utils/sound';
+
+  const container = document.getElementById('chat-messages-container');
+  const form = document.getElementById('chat-form');
+  const input = document.getElementById('chat-input') as HTMLInputElement;
+
+  const botMessages = [
+    { user: 'mateo_pro', badge: 'FAN', color: '#68D391', msg: '¡Spam de verdes en el chat! 🟢🟢🟢' },
+    { user: 'camila_twitch', badge: 'VIP', color: '#D6BCFA', msg: 'El mejor regreso del año sin duda' },
+    { user: 'lucas_kick', badge: 'SUB 1a', color: '#63B3ED', msg: 'Ya tengo la botana y la bebida listas 🥤' },
+    { user: 'sofia_streams', badge: 'FAN', color: '#F6E05E', msg: '¡Nicole te bancamos con todo! 👑' },
+    { user: 'nico_fanboy', badge: 'SUB 3m', color: '#F687B3', msg: 'W STREAMER W CHAT 💚' },
+    { user: 'el_pibe_gamer', badge: 'FAN', color: '#4FD1C5', msg: 'Kick va a explotar ese día jaja' }
+  ];
+
+  function appendMessage(user: string, badge: string, color: string, text: string, isUser = false) {
+    if (!container) return;
+
+    const div = document.createElement('div');
+    div.className = `flex items-start gap-2 animate-fade-in ${isUser ? 'bg-[#53FC18]/10 p-1.5 rounded-lg border border-[#53FC18]/30' : ''}`;
+
+    const badgeColor = isUser ? 'bg-[#53FC18] text-black' : 'bg-white/10 text-white/70';
+
+    div.innerHTML = `
+      <span class="text-[10px] font-bold px-1.5 py-0.2 rounded ${badgeColor}">${badge}</span>
+      <span class="font-bold" style="color: ${color}">${user}:</span>
+      <span class="text-white/90 break-words">${escapeHTML(text)}</span>
+    `;
+
+    container.appendChild(div);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function escapeHTML(str: string) {
+    return str.replace(/[&<>'"]/g, 
+      tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+    );
+  }
+
+  // Handle user submit
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!input || !input.value.trim()) return;
+
+    const message = input.value.trim();
+    appendMessage('TÚ', 'TÚ', '#53FC18', message, true);
+    input.value = '';
+    playHypePop(1.4);
+  });
+
+  // Automated gentle stream of messages every 9-16 seconds
+  let botIndex = 0;
+  setInterval(() => {
+    if (botIndex < botMessages.length) {
+      const item = botMessages[botIndex];
+      appendMessage(item.user, item.badge, item.color, item.msg);
+      botIndex++;
+    } else {
+      // Pick random
+      const randItem = botMessages[Math.floor(Math.random() * botMessages.length)];
+      appendMessage(randItem.user, randItem.badge, randItem.color, randItem.msg);
+    }
+  }, 10000);
+</script>

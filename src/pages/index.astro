@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Countdown from '../components/Countdown.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config';
+---
+
+<Layout title={`El Regreso de ${siteConfig.streamerName} en Kick | En 5 Días 🟢`}>
+  <!-- Top Navigation -->
+  <Navbar />
+
+  <!-- Main Single Page Content - 100% focused on Countdown -->
+  <main class="flex-grow flex flex-col justify-center items-center relative z-10">
+    <Countdown />
+  </main>
+
+  <!-- Footer -->
+  <Footer />
+</Layout>

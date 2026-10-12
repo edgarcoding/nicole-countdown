@@ -1,0 +1,148 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Nicole Berenice | El Regreso a Kick en 5 Días 🟢", 
+  description = "El regreso más esperado de Nicole Berenice a Kick. ¡Faltan solo 5 días! Entra, deja tu hype y prepárate para el directo." 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Kick vibes -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta name="theme-color" content="#53FC18" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#08090A] text-[#EDF2F7] min-h-screen overflow-x-hidden selection:bg-[#53FC18] selection:text-black relative">
+    <!-- Ambient glowing lights -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+      <!-- Glow top -->
+      <div class="absolute -top-[15vw] left-1/2 -translate-x-1/2 w-[75vw] h-[45vw] max-w-[1200px] bg-[#53FC18]/15 rounded-full blur-[140px]"></div>
+      <!-- Glow center left -->
+      <div class="absolute top-[35vh] -left-[15vw] w-[45vw] h-[45vw] max-w-[700px] bg-[#00E599]/10 rounded-full blur-[150px]"></div>
+      <!-- Glow bottom right -->
+      <div class="absolute bottom-[5vh] -right-[15vw] w-[50vw] h-[50vw] max-w-[800px] bg-[#53FC18]/12 rounded-full blur-[160px]"></div>
+      <!-- Grid overlay -->
+      <div class="absolute inset-0 bg-grid opacity-25"></div>
+      <!-- Radial vignette -->
+      <div class="absolute inset-0 bg-radial-vignette"></div>
+      <!-- Interactive floating Kick green embers canvas -->
+      <canvas id="bg-particles" class="absolute inset-0 w-full h-full pointer-events-none opacity-50"></canvas>
+    </div>
+
+    <!-- Main Content -->
+    <div class="relative z-10 flex flex-col min-h-screen">
+      <slot />
+    </div>
+
+    <script>
+      // Lightweight interactive Kick particles background
+      const canvas = document.getElementById('bg-particles') as HTMLCanvasElement | null;
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          let width = (canvas.width = window.innerWidth);
+          let height = (canvas.height = window.innerHeight);
+
+          window.addEventListener('resize', () => {
+            if (!canvas) return;
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+          });
+
+          const mouse = { x: -1000, y: -1000, radius: 120 };
+          window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+          });
+          window.addEventListener('mouseleave', () => {
+            mouse.x = -1000;
+            mouse.y = -1000;
+          });
+
+          interface Particle {
+            x: number;
+            y: number;
+            vx: number;
+            vy: number;
+            size: number;
+            alpha: number;
+            baseAlpha: number;
+          }
+
+          const particles: Particle[] = [];
+          const count = Math.min(45, Math.floor(width / 30));
+
+          for (let i = 0; i < count; i++) {
+            particles.push({
+              x: Math.random() * width,
+              y: Math.random() * height,
+              vx: (Math.random() - 0.5) * 0.4,
+              vy: -0.3 - Math.random() * 0.5,
+              size: Math.random() * 2 + 1,
+              alpha: Math.random() * 0.5 + 0.2,
+              baseAlpha: Math.random() * 0.5 + 0.2,
+            });
+          }
+
+          function animate() {
+            if (!ctx) return;
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+              const p = particles[i];
+              p.x += p.vx;
+              p.y += p.vy;
+
+              if (p.y < 0) {
+                p.y = height + 10;
+                p.x = Math.random() * width;
+              }
+              if (p.x < 0) p.x = width;
+              if (p.x > width) p.x = 0;
+
+              // Mouse repel interaction
+              const dx = mouse.x - p.x;
+              const dy = mouse.y - p.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < mouse.radius) {
+                const force = (mouse.radius - dist) / mouse.radius;
+                p.x -= (dx / dist) * force * 3;
+                p.y -= (dy / dist) * force * 3;
+              }
+
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+              ctx.fillStyle = `rgba(83, 252, 24, ${p.alpha})`;
+              ctx.shadowColor = '#53FC18';
+              ctx.shadowBlur = 8;
+              ctx.fill();
+            }
+
+            requestAnimationFrame(animate);
+          }
+          animate();
+        }
+      }
+    </script>
+  </body>
+</html>

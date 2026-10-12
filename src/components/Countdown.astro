@@ -1,0 +1,385 @@
+---
+import { siteConfig } from '../config';
+---
+
+<section class="py-6 sm:py-10 md:py-14 relative flex flex-col items-center text-center px-4 max-w-5xl mx-auto w-full">
+  
+  <!-- Nicole Hero Showcase Stage -->
+  <div class="relative mb-6 flex flex-col items-center select-none w-full">
+    <!-- Backlight Neon Halos -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-80 h-64 sm:h-80 bg-[#53FC18]/20 rounded-full blur-[90px] pointer-events-none animate-pulse"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-44 sm:w-56 h-44 sm:h-56 bg-[#00E599]/25 rounded-full blur-[45px] pointer-events-none"></div>
+
+    <!-- Interactive Streamer Speech Bubble -->
+    <div 
+      id="nicoleSpeech"
+      class="mb-3 px-4 py-2 sm:px-6 sm:py-2.5 rounded-2xl glass-panel neon-border text-white text-xs sm:text-sm font-semibold tracking-wide flex items-center gap-2.5 max-w-sm sm:max-w-md shadow-[0_0_30px_rgba(83,252,24,0.25)] animate-float cursor-pointer hover:border-[#53FC18] active:scale-95 transition-all group"
+      title="¡Haz clic para hablar con Nicole!"
+    >
+      <span class="text-base sm:text-xl group-hover:scale-125 transition-transform">💬</span>
+      <span id="speechText" class="text-white/90">"¡No lloren chat! Preparen las palomitas que ya volvemos 😭💚"</span>
+      <span class="text-[9px] bg-[#53FC18]/20 text-[#53FC18] border border-[#53FC18]/40 px-2 py-0.5 rounded-full font-mono uppercase font-bold tracking-wider ml-auto shrink-0">
+        ¡CLIC!
+      </span>
+    </div>
+
+    <!-- Nicole's Cutout Image with Cyber Rim Light & Float -->
+    <div class="relative cursor-pointer group" id="nicolePhotoContainer" title="¡Haz clic en Nicole para darle amor!">
+      <!-- Glowing base pedestal -->
+      <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-48 sm:w-64 h-6 bg-[#53FC18]/30 rounded-full blur-xl"></div>
+      
+      <img 
+        src="/photos/nicole.png" 
+        alt="Nicole Berenice en Kick" 
+        class="relative z-10 w-44 sm:w-60 md:w-68 h-auto max-h-[340px] object-contain drop-shadow-[0_0_35px_rgba(83,252,24,0.4)] group-hover:drop-shadow-[0_0_60px_rgba(83,252,24,0.8)] group-hover:scale-105 active:scale-95 transition-all duration-300 pointer-events-auto"
+        loading="eager"
+      />
+
+      <!-- Floating Verified Streamer Badge -->
+      <div class="absolute bottom-2 -right-2 sm:bottom-4 sm:right-2 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-[#08090A]/95 border border-[#53FC18] backdrop-blur-md shadow-[0_0_15px_#53FC18] pointer-events-none">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#53FC18] opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-[#53FC18]"></span>
+        </span>
+        <span class="text-[10px] sm:text-xs font-black tracking-wider text-white">
+          KICK VERIFIED
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top official pill -->
+  <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#53FC18]/10 border border-[#53FC18]/30 mb-4 backdrop-blur-md animate-float">
+    <span class="w-2 h-2 rounded-full bg-[#53FC18] animate-kick-pulse"></span>
+    <span class="text-xs sm:text-sm font-bold text-[#53FC18] tracking-widest uppercase">
+      Cuenta Regresiva Oficial de Kick
+    </span>
+    <span class="text-xs bg-[#53FC18]/25 text-[#53FC18] px-2 py-0.5 rounded-full font-mono font-bold">5 DÍAS</span>
+  </div>
+
+  <!-- Main Headline -->
+  <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white max-w-4xl leading-[1.08] mb-4">
+    EL REGRESO DE <br />
+    <span class="shimmer-text neon-text-glow">NICOLE BERENICE</span>
+  </h1>
+
+  <p class="text-sm sm:text-lg text-white/70 max-w-xl mx-auto mb-8 leading-relaxed font-normal">
+    El chat verde se vuelve a encender. Deja listo tu lugar, prepara tu botana favorita y acompáñala en su vuelta triunfal.
+  </p>
+
+  <!-- Countdown Container with 3D Tilt Cards -->
+  <div 
+    id="countdown-container" 
+    class="w-full max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 mb-8"
+    data-target-date={siteConfig.targetDate}
+  >
+    <!-- Days -->
+    <div class="tilt-card glass-panel neon-border rounded-2xl sm:rounded-3xl p-4 sm:p-7 flex flex-col items-center justify-center relative overflow-hidden group cursor-pointer transition-transform duration-150">
+      <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#53FC18]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <span id="days" class="font-mono text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight drop-shadow-md">
+        05
+      </span>
+      <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#53FC18] mt-2">
+        DÍAS
+      </span>
+      <div class="w-8 h-0.5 bg-[#53FC18]/30 mt-2.5 rounded-full"></div>
+    </div>
+
+    <!-- Hours -->
+    <div class="tilt-card glass-panel neon-border rounded-2xl sm:rounded-3xl p-4 sm:p-7 flex flex-col items-center justify-center relative overflow-hidden group cursor-pointer transition-transform duration-150">
+      <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#53FC18]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <span id="hours" class="font-mono text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight drop-shadow-md">
+        00
+      </span>
+      <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#53FC18] mt-2">
+        HORAS
+      </span>
+      <div class="w-8 h-0.5 bg-[#53FC18]/30 mt-2.5 rounded-full"></div>
+    </div>
+
+    <!-- Minutes -->
+    <div class="tilt-card glass-panel neon-border rounded-2xl sm:rounded-3xl p-4 sm:p-7 flex flex-col items-center justify-center relative overflow-hidden group cursor-pointer transition-transform duration-150">
+      <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#53FC18]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <span id="minutes" class="font-mono text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight drop-shadow-md">
+        00
+      </span>
+      <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#53FC18] mt-2">
+        MINUTOS
+      </span>
+      <div class="w-8 h-0.5 bg-[#53FC18]/30 mt-2.5 rounded-full"></div>
+    </div>
+
+    <!-- Seconds -->
+    <div class="tilt-card glass-panel neon-border rounded-2xl sm:rounded-3xl p-4 sm:p-7 flex flex-col items-center justify-center relative overflow-hidden group cursor-pointer transition-transform duration-150">
+      <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#53FC18]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <span id="seconds" class="font-mono text-4xl sm:text-6xl md:text-7xl font-black text-[#53FC18] tracking-tight neon-text-glow">
+        00
+      </span>
+      <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-white/80 mt-2">
+        SEGUNDOS
+      </span>
+      <div class="w-8 h-0.5 bg-[#53FC18]/50 mt-2.5 rounded-full"></div>
+    </div>
+  </div>
+
+  <!-- Integrated Hype Reactor Bar & Button -->
+  <div class="w-full max-w-xl mx-auto glass-panel neon-border rounded-2xl p-4 sm:p-5 mb-8 text-center relative overflow-hidden">
+    <div class="flex items-center justify-between text-xs sm:text-sm font-bold mb-2">
+      <span class="text-white/80 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-[#53FC18] animate-ping"></span>
+        <span>REACTOR DE HYPE COMUNITARIO</span>
+      </span>
+      <span id="hypePercentage" class="text-[#53FC18] font-mono font-black">89% SOBRECARGA</span>
+    </div>
+
+    <!-- Energy Progress Bar -->
+    <div class="w-full h-3 bg-black/60 rounded-full overflow-hidden p-0.5 border border-white/10 mb-4 shadow-inner">
+      <div id="hypeBar" class="h-full bg-gradient-to-r from-[#00E599] via-[#53FC18] to-[#99FF55] rounded-full transition-all duration-300 shadow-[0_0_12px_#53FC18]" style="width: 89%;"></div>
+    </div>
+
+    <!-- Hype Action Button -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+      <button 
+        id="integratedHypeBtn"
+        class="w-full sm:w-auto px-6 sm:px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#53FC18] to-[#3ae600] text-black font-black text-sm sm:text-base tracking-wider uppercase shadow-[0_0_25px_rgba(83,252,24,0.4)] hover:shadow-[0_0_40px_rgba(83,252,24,0.8)] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2.5 select-none"
+      >
+        <span>🔥</span>
+        <span>¡DAR HYPE AL STREAM!</span>
+        <span id="hypeCountBadge" class="bg-black/25 px-2 py-0.5 rounded text-xs font-mono font-bold text-black">2,410</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- State when stream starts -->
+  <div id="live-banner" class="hidden w-full max-w-2xl mx-auto glass-panel border border-[#53FC18] rounded-3xl p-8 mb-8 text-center animate-bounce shadow-[0_0_50px_rgba(83,252,24,0.5)]">
+    <h2 class="text-3xl sm:text-4xl font-black text-[#53FC18] mb-3">¡¡¡YA ESTÁ EN VIVO EN KICK!!! 🟢</h2>
+    <p class="text-white/80 mb-6 font-medium">El contador ha terminado. ¡Entra ya para no perderte el inicio del stream!</p>
+    <a 
+      href={siteConfig.kickUrl} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#53FC18] text-black font-black text-lg neon-button-glow transition-all"
+    >
+      <span>VER STREAM EN KICK AHORA</span>
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Interactive Quick Actions (Kick direct, Calendar & Share) -->
+  <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+    <!-- Kick Channel Direct Main Action -->
+    <a 
+      href={siteConfig.kickUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#53FC18] text-black font-black text-sm tracking-wide shadow-[0_0_25px_rgba(83,252,24,0.4)] hover:shadow-[0_0_35px_rgba(83,252,24,0.7)] hover:scale-105 active:scale-95 transition-all"
+    >
+      <span>👑</span>
+      <span>Seguir en kick.com/{siteConfig.kickUsername}</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+      </svg>
+    </a>
+
+    <!-- Google Calendar Event Button -->
+    <button 
+      id="calendarBtn"
+      class="flex items-center gap-2 px-4 py-3.5 rounded-xl bg-white/[0.04] border border-white/10 hover:border-[#53FC18]/50 hover:bg-[#53FC18]/10 text-white font-semibold text-xs sm:text-sm transition-all active:scale-95 cursor-pointer"
+    >
+      <span>📅</span>
+      <span>Google Calendar</span>
+    </button>
+
+    <!-- Share link button -->
+    <button 
+      id="shareBtn"
+      class="flex items-center gap-2 px-4 py-3.5 rounded-xl bg-white/[0.04] border border-white/10 hover:border-[#53FC18]/50 hover:bg-[#53FC18]/10 text-white font-semibold text-xs sm:text-sm transition-all active:scale-95 cursor-pointer"
+    >
+      <span>🔗</span>
+      <span id="shareBtnText">Compartir</span>
+    </button>
+  </div>
+
+  <!-- Toast message for copy -->
+  <div 
+    id="toastMessage" 
+    class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 glass-panel border border-[#53FC18]/40 px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 text-sm text-white"
+  >
+    <span class="text-[#53FC18] font-bold text-lg">✓</span>
+    <span>¡Enlace copiado! Compártelo con el chat verde.</span>
+  </div>
+
+</section>
+
+<script>
+  import confetti from 'canvas-confetti';
+  import { playHypePop, playLevelUpSound } from '../utils/sound';
+
+  // Countdown timer logic
+  const container = document.getElementById('countdown-container');
+  const targetDateStr = container?.getAttribute('data-target-date') || '';
+  const targetTime = new Date(targetDateStr).getTime();
+
+  const daysEl = document.getElementById('days');
+  const hoursEl = document.getElementById('hours');
+  const minutesEl = document.getElementById('minutes');
+  const secondsEl = document.getElementById('seconds');
+  const liveBanner = document.getElementById('live-banner');
+
+  function updateCountdown() {
+    const now = Date.now();
+    const distance = targetTime - now;
+
+    if (distance <= 0) {
+      if (daysEl) daysEl.textContent = '00';
+      if (hoursEl) hoursEl.textContent = '00';
+      if (minutesEl) minutesEl.textContent = '00';
+      if (secondsEl) secondsEl.textContent = '00';
+
+      if (liveBanner && liveBanner.classList.contains('hidden')) {
+        liveBanner.classList.remove('hidden');
+        if (container) container.classList.add('opacity-40');
+        confetti({
+          particleCount: 150,
+          spread: 100,
+          origin: { y: 0.6 },
+          colors: ['#53FC18', '#FFFFFF', '#00E599']
+        });
+      }
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    const pad = (n: number) => n.toString().padStart(2, '0');
+
+    if (daysEl) daysEl.textContent = pad(days);
+    if (hoursEl) hoursEl.textContent = pad(hours);
+    if (minutesEl) minutesEl.textContent = pad(minutes);
+    if (secondsEl) secondsEl.textContent = pad(seconds);
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // 3D Card Tilt on Mouse Move
+  const tiltCards = document.querySelectorAll<HTMLElement>('.tilt-card');
+  tiltCards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const rotX = -(y / rect.height) * 14;
+      const rotY = (x / rect.width) * 14;
+      card.style.transform = `perspective(600px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateY(-4px) scale(1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
+    });
+  });
+
+  // Interactive Nicole quotes rotation & celebration
+  const quotes = [
+    "¡No lloren chat! Preparen las palomitas que ya volvemos 😭💚",
+    "¡El chat verde de Kick se va a caer de la emoción! 🔥👑",
+    "¡El setup ya está al 100% calibrado para romper Kick! 🎙️✨",
+    "¿Ya me extrañaban? Porque yo a ustedes un montón 🥺💚",
+    "¡El primer directo va a durar hasta que salga el sol! 🚀☀️",
+    "¡Vayan dejando su follow que se vienen sorpresas épicas! 🟢👀"
+  ];
+  let quoteIndex = 0;
+
+  function triggerNicoleReaction() {
+    playHypePop(1.2);
+    quoteIndex = (quoteIndex + 1) % quotes.length;
+    const speechEl = document.getElementById('speechText');
+    if (speechEl) {
+      speechEl.style.opacity = '0';
+      setTimeout(() => {
+        speechEl.textContent = `"${quotes[quoteIndex]}"`;
+        speechEl.style.opacity = '1';
+      }, 150);
+    }
+    // Confetti burst from Nicole
+    confetti({
+      particleCount: 35,
+      spread: 60,
+      origin: { y: 0.35, x: 0.5 },
+      colors: ['#53FC18', '#00E599', '#FFFFFF', '#FFB800']
+    });
+  }
+
+  document.getElementById('nicolePhotoContainer')?.addEventListener('click', triggerNicoleReaction);
+  document.getElementById('nicoleSpeech')?.addEventListener('click', triggerNicoleReaction);
+
+  // Integrated Hype Reactor Button
+  const hypeBtn = document.getElementById('integratedHypeBtn');
+  const hypeCountBadge = document.getElementById('hypeCountBadge');
+  const hypeBar = document.getElementById('hypeBar');
+  const hypePercentage = document.getElementById('hypePercentage');
+
+  let hypeCount = parseInt(localStorage.getItem('nicole_hype_clicks') || '2410', 10);
+  if (hypeCountBadge) hypeCountBadge.textContent = hypeCount.toLocaleString();
+
+  hypeBtn?.addEventListener('click', (e) => {
+    hypeCount++;
+    localStorage.setItem('nicole_hype_clicks', hypeCount.toString());
+    if (hypeCountBadge) hypeCountBadge.textContent = hypeCount.toLocaleString();
+
+    playHypePop(1 + Math.random() * 0.4);
+
+    // Confetti from button position
+    const rect = hypeBtn.getBoundingClientRect();
+    const x = (rect.left + rect.width / 2) / window.innerWidth;
+    const y = (rect.top + rect.height / 2) / window.innerHeight;
+    confetti({
+      particleCount: 25,
+      spread: 50,
+      origin: { x, y },
+      colors: ['#53FC18', '#00E599', '#FFFFFF']
+    });
+
+    // Milestone sound
+    if (hypeCount % 15 === 0) {
+      playLevelUpSound();
+    }
+
+    // Dynamic progress bar update
+    const currentPercent = Math.min(100, 89 + Math.floor((hypeCount % 100) / 10));
+    if (hypeBar) hypeBar.style.width = `${currentPercent}%`;
+    if (hypePercentage) hypePercentage.textContent = `${currentPercent}% SOBRECARGA`;
+  });
+
+  // Calendar logic
+  document.getElementById('calendarBtn')?.addEventListener('click', () => {
+    const targetDate = new Date(targetTime);
+    const startDate = targetDate.toISOString().replace(/-|:|\.\d\d\d/g, "");
+    const endDate = new Date(targetTime + 4 * 60 * 60 * 1000).toISOString().replace(/-|:|\.\d\d\d/g, "");
+
+    const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Regreso de Nicole Berenice a Kick')}&details=${encodeURIComponent('¡El regreso más esperado de Nicole Berenice en directo por Kick! Entra en https://kick.com/nicoleberenice')}&location=${encodeURIComponent('https://kick.com/nicoleberenice')}&dates=${startDate}/${endDate}`;
+    window.open(gcalUrl, '_blank');
+  });
+
+  // Share logic
+  const shareBtn = document.getElementById('shareBtn');
+  const toast = document.getElementById('toastMessage');
+
+  shareBtn?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      if (toast) {
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        setTimeout(() => {
+          toast.classList.add('translate-y-24', 'opacity-0');
+        }, 3000);
+      }
+    } catch {
+      alert('Enlace: ' + window.location.href);
+    }
+  });
+</script>
