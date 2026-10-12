@@ -1,8 +1,20 @@
+export interface SocialLink {
+  platform: string;
+  name: string;
+  handle: string;
+  url: string;
+  badge: string;
+  icon: string;
+  glowColor: string;
+  badgeColor: string;
+}
+
 export interface Config {
   streamerName: string;
   kickUsername: string;
   kickUrl: string;
   targetDate: string; // ISO date string or timestamp
+  socialLinks: SocialLink[];
   photos: {
     id: string;
     title: string;
@@ -19,6 +31,48 @@ export const siteConfig: Config = {
   kickUrl: "https://kick.com/nicoleberenice",
   // 5 días desde hoy (configurable)
   targetDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString(),
+  socialLinks: [
+    {
+      platform: "TikTok",
+      name: "TikTok Principal",
+      handle: "@nicolebereniceu",
+      url: "https://www.tiktok.com/@nicolebereniceu",
+      badge: "Activa 🎵",
+      icon: "tiktok",
+      glowColor: "rgba(37, 244, 238, 0.4)",
+      badgeColor: "bg-[#25F4EE]/10 text-[#25F4EE] border-[#25F4EE]/30"
+    },
+    {
+      platform: "TikTok",
+      name: "TikTok Secundario",
+      handle: "@spicyberenice",
+      url: "https://www.tiktok.com/@spicyberenice",
+      badge: "Spicy 🔥",
+      icon: "tiktok",
+      glowColor: "rgba(254, 44, 85, 0.4)",
+      badgeColor: "bg-[#FE2C55]/10 text-[#FE2C55] border-[#FE2C55]/30"
+    },
+    {
+      platform: "Instagram",
+      name: "Instagram",
+      handle: "@nicoleberenice_",
+      url: "https://www.instagram.com/nicoleberenice_",
+      badge: "Stories & Fotos 📸",
+      icon: "instagram",
+      glowColor: "rgba(225, 48, 108, 0.4)",
+      badgeColor: "bg-[#E1306C]/10 text-[#E1306C] border-[#E1306C]/30"
+    },
+    {
+      platform: "Twitch",
+      name: "Twitch Oficial",
+      handle: "berenicenicole",
+      url: "https://www.twitch.tv/berenicenicole",
+      badge: "Canal Morado 🟣",
+      icon: "twitch",
+      glowColor: "rgba(145, 70, 255, 0.4)",
+      badgeColor: "bg-[#9146FF]/10 text-[#9146FF] border-[#9146FF]/30"
+    }
+  ],
   photos: [
     {
       id: "photo-1",
