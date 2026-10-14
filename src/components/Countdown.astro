@@ -54,7 +54,7 @@ import { siteConfig } from '../config';
     <span class="text-xs sm:text-sm font-bold text-[#53FC18] tracking-widest uppercase">
       Cuenta Regresiva Oficial de Kick
     </span>
-    <span class="text-xs bg-[#53FC18]/25 text-[#53FC18] px-2 py-0.5 rounded-full font-mono font-bold">5 DÍAS</span>
+    <span id="topDaysPill" class="text-xs bg-[#53FC18]/25 text-[#53FC18] px-2 py-0.5 rounded-full font-mono font-bold">...</span>
   </div>
 
   <!-- Main Headline -->
@@ -444,6 +444,17 @@ import { siteConfig } from '../config';
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     const pad = (n: number) => n.toString().padStart(2, '0');
+
+    const topDaysPill = document.getElementById('topDaysPill');
+    if (topDaysPill) {
+      if (days > 0) {
+        topDaysPill.textContent = `${days} DÍAS`;
+      } else if (hours > 0) {
+        topDaysPill.textContent = `${hours} HORAS`;
+      } else {
+        topDaysPill.textContent = '¡HOY!';
+      }
+    }
 
     if (daysEl) daysEl.textContent = pad(days);
     if (hoursEl) hoursEl.textContent = pad(hours);
